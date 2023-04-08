@@ -3,6 +3,8 @@ export default class User {
     nickname;
     realname;
     summary;
+    avatar;
+    avatar_border;
     status;
     bans = {
         vac: false,
@@ -25,6 +27,8 @@ export default class User {
         this.nickname = data.nickname;
         this.realname = data.realname;
         this.summary = data.summary;
+        this.avatar_border = data.avatar_frame;
+        this.avatar = data.avatar;
         this.status = data.status;
         this.recent_playtime = data.recent_playtime;
         this.stats.level = Number(data.level);
