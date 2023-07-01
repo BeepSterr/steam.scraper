@@ -1,6 +1,7 @@
 import scrapeIt from "scrape-it";
 import WorkshopItem from "./types/WorkshopItem.js";
 import User from "./types/User.js";
+import Storepage from "./types/Storepage.js";
 export default class Scraper {
 
     static async getWorkshopItem(url) {
@@ -79,6 +80,30 @@ export default class Scraper {
 
         console.log(data);
         return new User(data);
+    }
+
+    static async getStorepage(url) {
+        const { data } = await scrapeIt(url, {
+            name: {
+                selector: "#appHubAppName",
+            },
+            image: {
+                selector: ".game_header_image_full",
+                attr: "src"
+            },
+            description: {
+                selector: "#game_area_description",
+            },
+            tags: {
+                listItem: ".popular_tags",
+            },
+            price: {
+                selector: ".game_purchase_price.price",
+            }
+        });
+
+        console.log(data);
+        return new Storepage(data);
     }
 
 
