@@ -95,7 +95,7 @@ export default class Scraper {
                 selector: "#game_area_description",
             },
             tags: {
-                listItem: ".popular_tags",
+                listItem: ".app_tag",
             },
             price: {
                 selector: ".game_purchase_price.price",
